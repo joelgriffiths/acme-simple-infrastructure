@@ -360,6 +360,9 @@ worthless. A rebooking offer an hour late is still useful. Adding a third queue 
 
 ## What I'd do differently with more time
 
+I would have optimized for validation instead of volume. That's the theme behind most of
+this list.
+
 Roughly in priority order. Where an item already has a trigger in
 [EVOLUTION.md](EVOLUTION.md), this is the short version of why it isn't built.
 

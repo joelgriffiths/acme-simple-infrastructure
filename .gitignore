@@ -1,0 +1,19 @@
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+.terragrunt-cache/
+crash.log
+*.tfvars.local
+
+# --- Secrets ---------------------------------------------------------------
+# Deny everything under any envs/<env>/secrets/ directory, then allow back only
+# SOPS-encrypted files and the README. A plaintext working copy such as
+# app-secrets.yaml is therefore ignored by construction.
+#
+# This rule trusts the FILENAME. It cannot tell whether app-secrets.enc.yaml is
+# actually encrypted, so scripts/check-sops.sh enforces that as a pre-commit hook.
+# Install it with: git config core.hooksPath .githooks
+envs/*/secrets/*
+!envs/*/secrets/*.enc.*
+!envs/*/secrets/README.md

@@ -1,0 +1,13 @@
+# Which KMS key encrypts which environment's secrets.
+#
+# One key per environment, deliberately. A leaked staging credential must not be able to
+# decrypt a prod secret, and when prod moves to its own AWS account the key moves with it.
+# Keys are created by envs/<env>/<region>/security/kms.
+#
+# Alias ARNs rather than key IDs: the alias is stable across a key rotation or rebuild.
+creation_rules:
+  - path_regex: envs/staging/secrets/.*\.enc\.ya?ml$
+    kms: arn:aws:kms:us-west-2:491803677147:alias/acme-staging-secrets
+
+  - path_regex: envs/prod/secrets/.*\.enc\.ya?ml$
+    kms: arn:aws:kms:us-west-2:730925632418:alias/acme-prod-secrets

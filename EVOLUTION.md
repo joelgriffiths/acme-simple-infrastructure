@@ -136,6 +136,8 @@ Add **RDS Proxy** (or PgBouncer) once many Fargate tasks each hold a connection 
 approaches the instance limit, and `rds-cpu` fires on sustained load. Those alerts are the
 trigger; no calendar date needed.
 
+### 7. Split out Modules into their own semver tagged repo or repos.
+
 ## Cost watch: AWS Private CA
 
 The internal domain needs certificates a public CA cannot issue, so there is a private CA per
